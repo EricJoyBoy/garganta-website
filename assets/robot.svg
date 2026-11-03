@@ -1,0 +1,15 @@
+<svg viewBox="5 0 70 82" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Garganta robot">
+      <g class="crew-robot-character" stroke-linejoin="round" stroke-linecap="round">
+        <g class="crew-robot-antenna"><path d="M40 14V8" stroke="#5B21B6" stroke-width="3"/><circle cx="40" cy="6" r="3.5" fill="#C4B5FD" stroke="#6D28D9" stroke-width="2"/></g>
+        <path d="M27 68V74Q27 78 32 78H35Q38 78 38 74V68M43 68V74Q43 78 48 78H51Q54 78 54 74V68" fill="#8B5CF6" stroke="#4C237D" stroke-width="2.5"/>
+        <path d="M27 54Q21 53 19 60L17 67Q16 71 20 72Q24 73 26 68L29 61" fill="#A78BFA" stroke="#4C237D" stroke-width="2.5"/>
+        <g class="crew-robot-arm"><path d="M54 54Q60 53 62 60L64 67Q65 71 61 72Q57 73 55 68L52 61" fill="#A78BFA" stroke="#4C237D" stroke-width="2.5"/></g>
+        <path d="M26 51H55L54 66Q53 72 47 72H33Q27 72 26 66Z" fill="#7C3AED" stroke="#4C237D" stroke-width="2.5"/>
+        <path d="M33 59L37 62L33 65M42 65H47" stroke="#EDE9FE" stroke-width="2.8"/>
+        <path d="M23 16Q25 12 32 13L40 16L48 13Q55 12 57 16L65 21Q70 25 70 33V42Q70 54 58 56H22Q10 54 10 42V33Q10 25 15 21Z" fill="#A78BFA" stroke="#4C237D" stroke-width="2.5"/>
+        <path d="M17 28Q18 21 25 20" stroke="#DDD6FE" stroke-width="3"/>
+        <path d="M25 25H55Q61 25 61 32V43Q61 50 54 50H26Q19 50 19 43V32Q19 25 25 25Z" fill="#282047" stroke="#4C237D" stroke-width="2"/>
+        <g class="crew-robot-eyes" stroke="#B9F4EC" stroke-width="3.5"><path d="M28 37Q31 42 35 37M46 37Q49 42 53 37"/></g>
+        <circle cx="25" cy="44" r="1.8" fill="#C4B5FD" opacity=".65"/><circle cx="55" cy="44" r="1.8" fill="#C4B5FD" opacity=".65"/>
+      </g>
+    </svg>

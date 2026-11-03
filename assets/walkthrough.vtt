@@ -1,0 +1,33 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+Garganta: from issue to context, code and evidence.
+This is a visual tour using synthetic data.
+
+00:07.000 --> 00:15.000
+Start with a clear issue and three acceptance criteria.
+The sample asks for bounded webhook retries.
+
+00:15.000 --> 00:23.000
+Inspect the sources: the requirement, existing code
+and the project's retry convention.
+
+00:23.000 --> 00:30.000
+Follow the five phases of a sample workflow.
+A completed phase is not proof of a verified result.
+
+00:30.000 --> 00:40.000
+Read the patch and mark the files you have reviewed.
+These code excerpts are illustrative.
+
+00:40.000 --> 00:46.000
+Switch to the tests. Keep the intended behavior
+close to the implementation.
+
+00:46.000 --> 00:54.000
+Open the sample report and check its limitations.
+No tests or agents are running in this demo.
+
+00:54.000 --> 01:00.000
+Complete the sample review.
+No merge, push or deployment is performed.
