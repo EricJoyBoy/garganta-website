@@ -6,6 +6,10 @@ Public landing page and interactive demonstration of Garganta, a local workspace
 
 The five-stage walkthrough uses fictional issues, sample code, synthetic timings and example verification reports. It does not run an agent, call external APIs, read local files or deploy software. The 60-second video is a silent visual tour with English captions.
 
+## Documentation
+
+Read the [Garganta guide](https://ericjoyboy.github.io/garganta-website/docs/) for local setup, personal configuration, agents, review and optional integrations.
+
 ## Preview locally
 
 ```sh

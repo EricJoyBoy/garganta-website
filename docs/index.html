@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#faf9fc">
+<title>Docs — Garganta</title><meta name="description" content="Get started with Garganta: local setup, personal configuration, Kiro agents, review evidence and optional integrations.">
+<link rel="canonical" href="https://ericjoyboy.github.io/garganta-website/docs/"><meta property="og:title" content="Garganta documentation"><meta property="og:description" content="A practical guide to setting up and using the Garganta alpha."><meta property="og:url" content="https://ericjoyboy.github.io/garganta-website/docs/"><meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="../assets/robot.svg"><link rel="stylesheet" href="../style.css">
+</head><body class="documentation-page">
+<a class="skip-link" href="#docs-content">Skip to documentation</a>
+<header class="site-header"><nav class="nav wrap" aria-label="Main navigation">
+<a class="brand" href="../" aria-label="Garganta home"><img src="../assets/robot.svg" width="35" height="42" alt=""><span>garganta</span></a>
+<div class="nav-links"><a href="../#how-it-works">How it works</a><a href="../#demo">Explore</a><a href="../#get-started">Get started</a><a href="./" aria-current="page">Docs</a></div>
+<a class="button button-small button-outline nav-cta" href="https://github.com/EricJoyBoy" target="_blank" rel="noopener noreferrer">Meet the builder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+</nav></header>
+<main class="wrap docs-layout" id="main">
+<aside class="docs-sidebar" aria-label="Documentation navigation">
+<details open><summary>On this page</summary><nav aria-label="Documentation topics"><a href="#overview">Overview</a><a href="#getting-started">Getting started</a><a href="#configuration">Configuration</a><a href="#chat">Chat & agents</a><a href="#review">Review & evidence</a><a href="#integrations">Optional integrations</a><a href="#troubleshooting">Troubleshooting</a><a href="#limitations">Alpha status</a></nav></details>
+<a class="docs-back" href="../">← Back to the website</a>
+</aside>
+<article class="docs-content" id="docs-content" tabindex="-1">
+<header class="docs-page-intro" id="overview"><p class="eyebrow">GARGANTA / DOCUMENTATION</p><h1>Make yourself at home.</h1><p>A practical guide to your local workspace, from the first setup to reviewing a change.</p><span class="badge badge-purple">Alpha guide · 0.1.0a1</span></header>
+<div class="docs-callout"><strong>Website demo or real workspace?</strong><p>The <a href="../#demo">interactive demo</a> runs entirely in your browser with synthetic data. The application runs locally and needs an installed, authenticated Kiro CLI to execute agents. Its source repository is currently private.</p></div>
+<section id="getting-started" class="doc-section"><p class="eyebrow">01 / START SMALL</p><h2>Getting started</h2>
+<p>Begin with a small local repository or the included sample project. Jira is optional for the local chat path.</p>
+<h3>Requirements</h3><ul><li>Python 3.12 or later and Git.</li><li>macOS or Linux. Windows developers can use WSL; cross-platform pilot testing is still pending.</li><li>A separately installed and authenticated Kiro CLI for agent execution.</li><li>Collaborator access to the private application repository.</li></ul>
+<p>Node and npm are needed to rebuild the frontend. The current preparation includes compiled interface assets.</p>
+<h3>Install and start</h3><pre><code>git clone https://github.com/EricJoyBoy/garganta.git
+cd garganta
+./start-dashboard.sh</code></pre>
+<p>Open <code>http://127.0.0.1:7655/setup/start</code>. The launcher creates a Python virtual environment and installs the application's web dependencies when needed.</p>
+<h3>Complete the setup wizard</h3><ol><li>Select a local repository, or choose <code>examples/local-project</code> for a synthetic example.</li><li>Leave Jira fields empty to start with local chat.</li><li>Review and save the configuration, then follow any restart instruction shown by the application.</li><li>Open Chat and choose Developer or Tech Specialist.</li></ol>
+<p>The wizard does not install Kiro, sign you in to connected services or install a team's private agents and runtime hooks.</p>
+<div class="docs-tip"><strong>Need access?</strong> Use “Meet the builder” in the top bar to contact the project author. The public website repository contains only this site, not the application.</div>
+</section>
+<section id="configuration" class="doc-section"><p class="eyebrow">02 / YOUR WORKSPACE</p><h2>Configuration</h2><p>Personal configuration, work history and team profiles have separate roles. Keep credentials and organization-specific settings outside the source repository.</p>
+<div class="doc-table-wrap"><table><caption>Configuration locations and overrides</caption><thead><tr><th>Setting</th><th>Default / behavior</th></tr></thead><tbody><tr><td>Personal configuration</td><td><code>~/.garganta/launcher-config.json</code></td></tr><tr><td><code>GARGANTA_HOME</code></td><td>Choose another configuration directory.</td></tr><tr><td><code>GARGANTA_DATA_DIR</code></td><td>Choose a separate directory for application-owned history and state.</td></tr><tr><td>Team catalog</td><td>An external TOML catalog, selected during setup when needed.</td></tr><tr><td>Service inventory</td><td><code>~/.garganta/integrations.json</code>, or the file selected by <code>GARGANTA_INVENTORY</code>.</td></tr></tbody></table></div>
+<p>No previous installation is migrated automatically. For an isolated test installation, choose new configuration and data directories before starting:</p><pre><code>export GARGANTA_HOME="$HOME/.garganta-demo"
+export GARGANTA_DATA_DIR="$HOME/.garganta-demo-data"
+./start-dashboard.sh</code></pre>
+<p>Use the same directory settings when restarting that installation.</p>
+</section>
+<section id="chat" class="doc-section"><p class="eyebrow">03 / WORK WITH AN AGENT</p><h2>Chat & agents</h2><p>Choose Developer or Tech Specialist and ask about the selected repository. If matching custom agent definitions are absent, local chat uses Kiro's default agent with the selected role instructions.</p>
+<h3>A useful first request</h3><blockquote>Explain this repository's entry points and suggest a small improvement. Read the relevant files first and tell me which sources support your answer.</blockquote>
+<p>The project files available to the agent are the files on the machine where Garganta and Kiro run. A remote environment does not automatically gain access to repositories or credentials on your laptop.</p>
+<h3>Tool permissions</h3><p>Permissions depend on your Kiro runtime and agent configuration. Agents operate with your user privileges and may read files, change code or invoke tools when permitted.</p><p>This alpha does not provide a complete approval dialog for every ACP request. A request requiring client approval stops the turn by default. Automatic approval is an explicit opt-in through <code>GARGANTA_AUTO_APPROVE_TOOLS=1</code>; it is not a prerequisite for reading this guide or exploring the demo.</p><p>A disconnected or interrupted turn is not automatically replayed. Check its recorded activity before deciding to retry.</p>
+</section>
+<section id="review" class="doc-section"><p class="eyebrow">04 / INSPECT THE RESULT</p><h2>Review & evidence</h2><p>A completed run and a verified change are different things. A model's statement that tests passed is not a test report.</p>
+<ol><li><strong>Read the intended change.</strong> Check the requirement and acceptance criteria against the issue.</li><li><strong>Inspect the selected version.</strong> Read the code diff or document version, including the base and final commit or document hash when available.</li><li><strong>Open the evidence.</strong> Check recorded reports, their scope and which version they apply to.</li><li><strong>Recheck after changes.</strong> When the inputs or code change, earlier results may no longer support the new version.</li><li><strong>Make a decision.</strong> Note missing evidence and unresolved questions before accepting the work.</li></ol>
+<div class="docs-callout"><strong>How to read the website demo</strong><p>DEMO-42, its code excerpts, timings and reports are fictional. “Mark as reviewed” and “Complete sample review” change only the browser's temporary demo state. They do not approve a real change or perform a merge, push or deployment.</p></div>
+<p>Review modules in the retained alpha source need their corresponding profiles and configuration. The initial pilot path focuses on local setup and chat.</p>
+</section>
+<section id="integrations" class="doc-section"><p class="eyebrow">05 / CONNECT WHAT YOU NEED</p><h2>Optional integrations</h2><p>You can start without external delivery services. Add integrations only when their workflows are configured and you can verify the intended access.</p>
+<div class="doc-integration"><h3>Jira</h3><p>Issue workflows can be supplied through an external team catalog such as <code>launcher.toml</code>. Jira credentials are personal. The local chat setup can leave Jira unset.</p></div>
+<div class="doc-integration"><h3>Jenkins & AWS</h3><p>These modules need configured credentials, inventories and relevant workflow profiles. The generic source includes no organization pipeline catalog or cloud account.</p><p>Copy <code>examples/integrations.json</code> to your personal configuration directory and populate only the resources you intend to use. Inventories are empty by default.</p></div>
+<p>Configured Jira, Jenkins and AWS paths still need end-to-end testing in your own environment. Their presence in the source is not a claim that a particular deployment has been validated.</p>
+</section>
+<section id="troubleshooting" class="doc-section"><p class="eyebrow">06 / FIND YOUR NEXT STEP</p><h2>Troubleshooting</h2>
+<details class="doc-faq"><summary>The application repository returns “Not found”</summary><p>The application is a private alpha. Confirm that the GitHub account used by Git has collaborator access. Access to this public website does not grant access to the application.</p></details>
+<details class="doc-faq"><summary>The interface opens but the agent cannot run</summary><p>Check that Kiro is installed and authenticated on the same machine, and that the selected agent configuration and its referenced prompt files exist. Setup does not install or authenticate Kiro.</p></details>
+<details class="doc-faq"><summary>A tool needs approval or a turn stops</summary><p>Read the recorded tool outcome and inspect the Kiro permission policy. Do not assume an interrupted call succeeded or retry operations with uncertain external effects without checking their actual result.</p></details>
+<details class="doc-faq"><summary>Can I use another local port?</summary><p>Pass the desired port to the launcher, for example <code>./start-dashboard.sh 7656</code>. Open the corresponding local URL.</p></details>
+<details class="doc-faq"><summary>Can I run the Python application on GitHub Pages?</summary><p>No. Pages serves this static website and browser-local demo. Running Garganta requires a Python environment and an agent runtime. The public website is separate from the application.</p></details>
+</section>
+<section id="limitations" class="doc-section"><p class="eyebrow">07 / CURRENT SCOPE</p><h2>Alpha status</h2><p>Garganta is a local, single-user application under preparation for a public source release. Keep the application server local; this release is not a hosted multi-user service.</p><ul><li>Local setup and chat are the initial pilot path.</li><li>Cross-platform and real-runtime testing remain in progress.</li><li>Retained workflow, review, KB and delivery modules need their corresponding configuration and further integration checks.</li><li>Model requests and connected-service data may leave the device.</li><li>The application's top-level source license and provenance review remain pending.</li></ul><p>The website and its sample-data demo are public. The application's source repository remains private.</p>
+</section>
+<div class="docs-end"><span>Ready to explore the flow?</span><a class="button button-outline" href="../#demo">Back to the demo →</a></div>
+</article></main>
+<footer class="wrap site-footer"><a class="brand" href="../"><img src="../assets/robot.svg" width="27" height="33" alt=""><span>garganta</span></a><span>A clearer view of agent-assisted development.</span><a href="../">Back to the website →</a></footer>
+</body></html>
